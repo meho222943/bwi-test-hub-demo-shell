@@ -1,0 +1,19 @@
+# BWI Test Hub — execution manifest.
+#
+# Runs a small self-contained test suite as a plain host process (no
+# runtime.profile is declared, so the hub executes it via DIRECT_PROCESS
+# and NO container runtime / Docker daemon is required). The command
+# writes a browsable HTML report and a JUnit XML the hub can surface.
+version: 1
+name: bwi-test-hub-demo
+command:
+  argv: ["sh", "run-tests.sh"]
+timeout:
+  durationSeconds: 120
+reportArtifacts:
+  - kind: html-report
+    path: report/index.html
+    description: Demo HTML report
+  - kind: junit-xml
+    path: report/junit.xml
+    description: JUnit results
