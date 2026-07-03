@@ -1,13 +1,13 @@
-# BWI Test Hub — execution manifest.
-#
-# Runs a small self-contained test suite as a plain host process (no
-# runtime.profile is declared, so the hub executes it via DIRECT_PROCESS
-# and NO container runtime / Docker daemon is required). The command
-# writes a browsable HTML report and a JUnit XML the hub can surface.
+# Shell demo for the BWI Test Hub — CONTAINER execution.
+# Declares a runtime PROFILE (never a raw image); the hub maps it to an
+# approved image (Alpine/busybox) in its runner-image catalog.
 version: 1
-name: bwi-test-hub-demo
+name: shell-posix-demo
 command:
   argv: ["sh", "run-tests.sh"]
+runtime:
+  profile: shell-alpine
+  required: true
 timeout:
   durationSeconds: 120
 reportArtifacts:
