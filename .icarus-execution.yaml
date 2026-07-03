@@ -12,7 +12,7 @@ timeout:
   durationSeconds: 120
 reportArtifacts:
   - kind: html-report
-    path: report/index.html
+    path: report
     description: Demo HTML report
   - kind: junit-xml
     path: report/junit.xml
